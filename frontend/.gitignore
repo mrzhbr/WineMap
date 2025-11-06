@@ -1,10 +1,6 @@
-# Ignore local token file containing Mapbox key
-/token.js
-
-# Ignore node modules and build artifacts (if repo uses npm)
+# Node / build
 node_modules/
 /dist/
 
-# Other local files
+# Environment variables
 .env
-

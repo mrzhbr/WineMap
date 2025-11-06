@@ -1,0 +1,2 @@
+Static assets in this folder are served at root (/). Data JSON is copied here for dev and build.
+
