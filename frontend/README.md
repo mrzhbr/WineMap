@@ -39,8 +39,6 @@ Features
 - Click priority: markers > clusters > polygons
 - Polygon highlight toggling on click
 - 3D globe toggle with animated camera and terrain/fog
-- Info card styled like the top-left panel
-- Status counter moved to bottom-left
 
 Troubleshooting
 
