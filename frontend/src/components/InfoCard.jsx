@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function InfoCard({feature, onClose}){
+export default function InfoCard({feature, onClose, satelliteEnabled}){
   if(!feature) return null
   const title = feature.bezeichnung || feature.label || feature.name || feature.lage || 'Feature'
 
@@ -68,23 +68,42 @@ export default function InfoCard({feature, onClose}){
   const area = feature.flaeche || feature.area
   if(isNonEmpty(area)) lines.push(<div key="area"><strong>Area (ha):</strong> {area}</div>)
 
+  const cardStyle = {
+    background: 'rgba(255, 255, 255, 0.15)',
+    color: '#ffffff',
+    padding: 16,
+    borderRadius: 10,
+    border: '1px solid rgba(255, 255, 255, 0.2)',
+    backdropFilter: 'blur(12px)',
+    boxShadow: '0 8px 32px rgba(0,0,0,0.1)',
+    transition: 'all 0.5s ease-in-out'
+  }
+  
+  const textStyle = {
+    fontSize: 13,
+    color: 'rgba(255, 255, 255, 0.8)',
+    marginTop: 6
+  }
+  
+  const buttonStyle = {
+    background: 'rgba(255, 255, 255, 0.1)',
+    border: '1px solid rgba(255, 255, 255, 0.3)',
+    color: '#ffffff',
+    padding: '6px 10px',
+    borderRadius: '8px',
+    cursor: 'pointer',
+    fontWeight: '500'
+  }
+
   return (
     <div style={{position:'absolute', right:16, bottom:16, zIndex:4}}>
-      <div className="infocard" style={{
-        background: 'linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02))',
-        color: '#cfeff4',
-        padding: 16,
-        borderRadius: 10,
-        border: '1px solid rgba(0,230,255,0.08)',
-        backdropFilter: 'blur(6px)',
-        boxShadow: '0 6px 30px rgba(0,0,0,0.6)'
-      }}>
+      <div className="infocard" style={cardStyle}>
         <strong>{title}</strong>
-        <div style={{fontSize:13,color:'#9bbec3',marginTop:6}}>
+        <div style={textStyle}>
           {lines.length ? lines : 'No additional information available.'}
         </div>
         <div style={{marginTop:8}}>
-          <button className="btn" style={{borderColor:'rgba(255,255,255,0.04)',color:'#9ddbf0',padding:'6px 10px'}} onClick={onClose}>Close</button>
+          <button className="btn" style={buttonStyle} onClick={onClose}>Close</button>
         </div>
       </div>
     </div>
